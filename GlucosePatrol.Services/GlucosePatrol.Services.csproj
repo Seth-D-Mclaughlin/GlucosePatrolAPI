@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GlucosePatrol.Data\GlucosePatrol.Data.csproj">
+      <Project>{4b7052c4-6067-4b00-83c5-4dbda5a7b96a}</Project>
+      <Name>GlucosePatrol.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GlucosePatrol.Models\GlucosePatrol.Models.csproj">
+      <Project>{454397b9-f682-424f-91f4-6466537c5fcd}</Project>
+      <Name>GlucosePatrol.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
