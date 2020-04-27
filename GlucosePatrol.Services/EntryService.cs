@@ -52,5 +52,49 @@ namespace GlucosePatrol.Services
                 return query.ToArray();
             }
         }
+        public EntryDetail GetEntryById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Entries
+                    .Single(e => e.EntryId == id && e.OwnerId == _userId);
+                return
+                    new EntryDetail
+                    {
+                        EntryId = entity.EntryId,
+                        BloodSugarReading = entity.BloodSugarReading,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
+                    };
+            }
+        }
+        public bool UpdateEntry(EntryEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Entries
+                    .Single(e => e.EntryId == model.EntryId && e.OwnerId == _userId);
+                entity.BloodSugarReading = model.BloodSugarReading;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool DeleteEntry(int entryId)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Entries
+                    .Single(e => e.EntryId == entryId && e.OwnerId == _userId);
+                ctx.Entries.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
