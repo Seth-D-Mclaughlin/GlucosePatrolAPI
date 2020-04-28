@@ -34,11 +34,38 @@ namespace GlucosePatrol.WebAPI.Controllers
 
             return Ok(); //Return 200
         }
+        [HttpGet]
+        public IHttpActionResult Get(int id)
+        {
+            EntryService entryService = CreateEntryService();
+            var entry = entryService.GetEntryById(id);
+            return Ok(entry);
+        }
         private EntryService CreateEntryService() //Helper method
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var entryService = new EntryService(userId);
             return entryService;
+        }
+        [HttpPut]
+        public IHttpActionResult Put(EntryEdit entry)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var service = CreateEntryService();
+
+            if (!service.UpdateEntry(entry))
+                return InternalServerError();
+            return Ok();
+        }
+        [HttpDelete]
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateEntryService();
+
+            if (!service.DeleteEntry(id))
+                return InternalServerError();
+            return Ok();
         }
     }
 }
