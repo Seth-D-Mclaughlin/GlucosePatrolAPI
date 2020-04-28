@@ -1,4 +1,5 @@
-﻿using GlucosePatrol.Models;
+﻿using GlucosePatrol.Data;
+using GlucosePatrol.Models;
 using GlucosePatrol.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -19,6 +20,7 @@ namespace GlucosePatrol.WebAPI.Controllers
             var entries = entryService.GetEntries();
             return Ok(entries);
         }
+
         [HttpPost]
         public IHttpActionResult Post(EntryCreate entry)
         {
