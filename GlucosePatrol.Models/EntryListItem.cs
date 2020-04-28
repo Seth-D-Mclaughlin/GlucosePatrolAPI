@@ -19,9 +19,5 @@ namespace GlucosePatrol.Models
         
         [Display(Name ="Created")]
         public DateTimeOffset CreatedUtc { get; set; }
-
-
-        //string[,] MinMaxAvg = new string[3, 2] { { "Max", " " }, { "Min", " " }, { "Average", "156" } };
-         
     }
 }
