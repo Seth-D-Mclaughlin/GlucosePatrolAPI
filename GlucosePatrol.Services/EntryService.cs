@@ -96,5 +96,36 @@ namespace GlucosePatrol.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public List<int> GetListOfBloodSugarLevels()
+        {
+            List<int> ListOfBloodSugarLevels = new List<int>();
+
+            IEnumerable<EntryListItem> ListOfEntries = GetEntries();
+            
+            foreach(EntryListItem reading in ListOfEntries)
+            {
+                ListOfBloodSugarLevels.Add(reading.BloodSugarReading);
+            }
+            return ListOfBloodSugarLevels;
+            
+        }
+        public EntryStatistics GetMinMaxAvg()
+        {
+            List<int> bSReadings = GetListOfBloodSugarLevels();
+            EntryStatistics Model = new EntryStatistics();
+            string[,] MinMaxAvg = new string[3, 2] { { "Max", " " }, { "Min", " " }, { "Average", "" } };
+            string max = bSReadings.Max().ToString();
+            MinMaxAvg[0, 1] = max;
+            string min = bSReadings.Min().ToString();
+            MinMaxAvg[1, 1] = min;
+            string avg = bSReadings.Average().ToString();
+            MinMaxAvg[2, 1] = avg;
+            Model.MinMaxAvg = MinMaxAvg;
+            return Model;
+            //string count = bSReadings.Count().ToString();
+
+
+        }
+        // public "Model" GetListOfEntriesBetweenTimePeriod(DateTime Start, DateTime End)
     }
 }

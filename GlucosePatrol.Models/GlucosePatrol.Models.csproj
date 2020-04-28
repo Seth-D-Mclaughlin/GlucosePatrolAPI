@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntryStatistics.cs" />
     <Compile Include="EntryCreate.cs" />
     <Compile Include="EntryDetail.cs" />
     <Compile Include="EntryEdit.cs" />
