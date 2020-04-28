@@ -72,7 +72,7 @@ namespace GlucosePatrol.Services
         }
         public bool UpdateEntry(EntryEdit model)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
@@ -86,7 +86,7 @@ namespace GlucosePatrol.Services
         }
         public bool DeleteEntry(int entryId)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
@@ -101,17 +101,17 @@ namespace GlucosePatrol.Services
             List<int> ListOfBloodSugarLevels = new List<int>();
 
             IEnumerable<EntryListItem> ListOfEntries = GetEntries();
-            
-            foreach(EntryListItem reading in ListOfEntries)
+
+            foreach (EntryListItem reading in ListOfEntries)
             {
                 ListOfBloodSugarLevels.Add(reading.BloodSugarReading);
             }
             return ListOfBloodSugarLevels;
-            
+
         }
-        public EntryStatistics GetMinMaxAvg()
+        public EntryStatistics GetMinMaxAvg(List<int> bSReadings)
         {
-            List<int> bSReadings = GetListOfBloodSugarLevels();
+            
             EntryStatistics Model = new EntryStatistics();
             string[,] MinMaxAvg = new string[3, 2] { { "Max", " " }, { "Min", " " }, { "Average", "" } };
             string max = bSReadings.Max().ToString();
@@ -122,10 +122,23 @@ namespace GlucosePatrol.Services
             MinMaxAvg[2, 1] = avg;
             Model.MinMaxAvg = MinMaxAvg;
             return Model;
+
             //string count = bSReadings.Count().ToString();
-
-
         }
-        // public "Model" GetListOfEntriesBetweenTimePeriod(DateTime Start, DateTime End)
+        public List<int> GetListOfBloodSugarByDate(DateTime Start, DateTime End)
+        {
+            List<int> ListOfBloodSugarLevels = new List<int>();
+
+            IEnumerable<EntryListItem> ListOfEntries = GetEntries();
+
+            foreach(EntryListItem reading in ListOfEntries)
+            {
+                if(reading.CreatedUtc.Date >= Start && reading.CreatedUtc.Date <= End)
+                {
+                    ListOfBloodSugarLevels.Add(reading.BloodSugarReading);
+                }
+            }
+            return ListOfBloodSugarLevels;
+        }
     }
 }

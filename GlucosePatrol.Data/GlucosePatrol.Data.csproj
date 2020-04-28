@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entry.cs" />
+    <Compile Include="Event.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202004271551080_InitialCreate.cs" />
     <Compile Include="Migrations\202004271551080_InitialCreate.Designer.cs">

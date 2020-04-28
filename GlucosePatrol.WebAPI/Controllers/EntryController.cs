@@ -51,8 +51,10 @@ namespace GlucosePatrol.WebAPI.Controllers
         public IHttpActionResult Get(DateTime Start, DateTime End)  // We need to create a method that gets entries beteween a start and end date.
         {
             EntryService entryService = CreateEntryService();
-            var MinMaxAvg = entryService.GetMinMaxAvg();
-            return Ok(MinMaxAvg);
+
+            var MinMaxAvg = entryService.GetListOfBloodSugarByDate(Start.Date, End.Date);
+            var MMA = entryService.GetMinMaxAvg(MinMaxAvg);
+            return Ok(MMA);
         }
         [HttpPut]
         public IHttpActionResult Put(EntryEdit entry)
