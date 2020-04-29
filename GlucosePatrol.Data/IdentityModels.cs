@@ -33,6 +33,7 @@ namespace GlucosePatrol.Data
             return new ApplicationDbContext();
         }
         public DbSet<Entry> Entries { get; set; }
+        public DbSet<Event> Events { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
