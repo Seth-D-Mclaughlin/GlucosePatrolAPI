@@ -60,6 +60,9 @@
     <Compile Include="EntryEdit.cs" />
     <Compile Include="EntryListItem.cs" />
     <Compile Include="EventCreate.cs" />
+    <Compile Include="EventDetail.cs" />
+    <Compile Include="EventEdit.cs" />
+    <Compile Include="EventListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
