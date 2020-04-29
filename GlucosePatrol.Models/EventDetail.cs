@@ -1,26 +1,23 @@
-﻿using System;
+﻿using GlucosePatrol.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GlucosePatrol.Data
+namespace GlucosePatrol.Models
 {
-    public enum EventType {carbs = 1, insulin, exercise, health }
-    public enum EventSubType {fastActing = 1, longActing, light, medium, heavy, illness, stress, highSymptoms, lowSymptoms, cycle, alcohol }
-    public enum UnitType { grams = 1, units, minutes}
-    public class Event
+    public class EventDetail
     {
-        [Key]
         public int EventId { get; set; }
-        [Required]
         public EventType TypeOfEvent { get; set; }
         public EventSubType? SubTypeOfEvent { get; set; }
         public float? Value { get; set; }
         public UnitType? Unit { get; set; }
-        [Required]
+        [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
+        [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }
