@@ -19,5 +19,8 @@ namespace GlucosePatrol.Data
         public EventSubType? SubTypeOfEvent { get; set; }
         public float? Value { get; set; }
         public UnitType? Units { get; set; }
+        [Required]
+        public DateTimeOffset CreatedUtc { get; set; }
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }
