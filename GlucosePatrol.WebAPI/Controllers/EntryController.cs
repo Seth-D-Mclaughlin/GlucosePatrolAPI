@@ -43,8 +43,9 @@ namespace GlucosePatrol.WebAPI.Controllers
         }
         private EntryService CreateEntryService() //Helper method
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var entryService = new EntryService(userId);
+            var patientId = Int32.Parse(User.Identity.GetUserId());//++++++++++++++++++++++##########
+            
+            var entryService = new EntryService(patientId);
             return entryService;
         }
         [HttpGet]

@@ -34,6 +34,7 @@ namespace GlucosePatrol.Data
         }
         public DbSet<Entry> Entries { get; set; }
         public DbSet<Event> Events { get; set; }
+        public DbSet<Patient> Patients { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

@@ -21,7 +21,7 @@ namespace GlucosePatrol.Services
             var entity =
                 new Event()
                 {
-                    OwnerId = _userId, //Hey we need to discuss how we get the OwnerId. 1) Grab it from foregin relation with Entry. 2)Add OwnerId prop to Event.cs (Which defeats the purpose?)
+                    //OwnerId = _userId, Hey we need to discuss how we get the OwnerId. 1) Grab it from foregin relation with Entry. 2)Add OwnerId prop to Event.cs (Which defeats the purpose?)
                     TypeOfEvent = model.TypeOfEvent,
                     SubTypeOfEvent = model.SubTypeOfEvent,
                     Value = model.Value,

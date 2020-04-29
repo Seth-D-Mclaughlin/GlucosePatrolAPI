@@ -10,10 +10,10 @@ namespace GlucosePatrol.Services
 {
     public class EntryService
     {
-        private readonly Guid _userId;
-        public EntryService(Guid userId)
+        private readonly int _patientId;
+        public EntryService(int patientId)
         {
-            _userId = userId;
+            _patientId = patientId;
         }
 
         public bool CreateEntry(EntryCreate model)  //Create method
@@ -21,7 +21,7 @@ namespace GlucosePatrol.Services
             var entity =
                 new Entry()
                 {
-                    OwnerId = _userId,
+                    PatientId = _patientId,
                     BloodSugarReading = model.BloodSugarReading,
                     CreatedUtc = DateTimeOffset.Now
                 };
@@ -39,7 +39,7 @@ namespace GlucosePatrol.Services
                 var query =
                     ctx
                     .Entries
-                    .Where(e => e.OwnerId == _userId)
+                    .Where(e => e.PatientId == _patientId)
                     .Select(
                         e =>
                         new EntryListItem
@@ -59,7 +59,7 @@ namespace GlucosePatrol.Services
                 var entity =
                     ctx
                     .Entries
-                    .Single(e => e.EntryId == id && e.OwnerId == _userId);
+                    .Single(e => e.EntryId == id && e.PatientId == _patientId);
                 return
                     new EntryDetail
                     {
@@ -77,7 +77,7 @@ namespace GlucosePatrol.Services
                 var entity =
                     ctx
                     .Entries
-                    .Single(e => e.EntryId == model.EntryId && e.OwnerId == _userId);
+                    .Single(e => e.EntryId == model.EntryId && e.PatientId == _patientId);
                 entity.BloodSugarReading = model.BloodSugarReading;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
@@ -91,7 +91,7 @@ namespace GlucosePatrol.Services
                 var entity =
                     ctx
                     .Entries
-                    .Single(e => e.EntryId == entryId && e.OwnerId == _userId);
+                    .Single(e => e.EntryId == entryId && e.PatientId == _patientId);
                 ctx.Entries.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }

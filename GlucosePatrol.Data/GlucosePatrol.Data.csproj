@@ -91,7 +91,12 @@
     <Compile Include="Migrations\202004271551080_InitialCreate.Designer.cs">
       <DependentUpon>202004271551080_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004292057224_AddedEventandPatientTable.cs" />
+    <Compile Include="Migrations\202004292057224_AddedEventandPatientTable.Designer.cs">
+      <DependentUpon>202004292057224_AddedEventandPatientTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Patient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +106,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202004271551080_InitialCreate.resx">
       <DependentUpon>202004271551080_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004292057224_AddedEventandPatientTable.resx">
+      <DependentUpon>202004292057224_AddedEventandPatientTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
