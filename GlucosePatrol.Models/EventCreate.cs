@@ -14,6 +14,6 @@ namespace GlucosePatrol.Models
         public EventType TypeOfEvent { get; set; }
         public EventSubType? SubTypeOfEvent { get; set; }
         public float? Value { get; set; }
-        public UnitType? Units { get; set; }
+        public UnitType? Unit { get; set; }
     }
 }
