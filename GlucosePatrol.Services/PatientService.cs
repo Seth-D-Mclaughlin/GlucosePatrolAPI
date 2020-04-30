@@ -30,6 +30,28 @@ namespace GlucosePatrol.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public IEnumerable<PatientListItem> GetPatients()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Patients
+                    .Where(e => e.OwnerId == _userId)
+                    .Select(
+                        e =>
+                        new PatientListItem
+                        {
+                            PatientId = e.PatientId,
+                            FirstName = e.FirstName,
+                            LastName = e.LastName
+                        }
+                        );
+                return query.ToArray();
+            }
+        }
+
         public bool UpdatePatient(PatientEdit model)
         {
             using (var ctx = new ApplicationDbContext())
@@ -43,6 +65,7 @@ namespace GlucosePatrol.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
         public bool DeletePatient(int patientId)
         {
             using (var ctx = new ApplicationDbContext())

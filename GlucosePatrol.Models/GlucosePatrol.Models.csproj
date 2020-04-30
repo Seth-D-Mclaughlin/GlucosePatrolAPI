@@ -64,7 +64,9 @@
     <Compile Include="EventEdit.cs" />
     <Compile Include="EventListItem.cs" />
     <Compile Include="PatientCreate.cs" />
+    <Compile Include="PatientDetail.cs" />
     <Compile Include="PatientEdit.cs" />
+    <Compile Include="PatientListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

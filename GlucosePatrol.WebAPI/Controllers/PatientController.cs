@@ -18,6 +18,7 @@ namespace GlucosePatrol.WebAPI.Controllers
         //    PatientService patientService = CreatePatientService();
         //    var patient = patientService.GetPatients();
         //}
+
         public IHttpActionResult Post(PatientCreate patient)
         {
             if (!ModelState.IsValid)        //If EntryCreate Required Properties are not met
