@@ -12,11 +12,13 @@ using System.Web.Http;
 namespace GlucosePatrol.WebAPI.Controllers
 {
     [Authorize]
+    
     public class EntryController : ApiController
     {
-        public IHttpActionResult Get()
+        [HttpGet]
+        public IHttpActionResult Get(EntryListItem entry)
         {
-            EntryService entryService = CreateEntryService();
+            var entryService = new EntryService(entry.PatientId);
             var entries = entryService.GetEntries();
             return Ok(entries);
         }
@@ -27,7 +29,7 @@ namespace GlucosePatrol.WebAPI.Controllers
             if (!ModelState.IsValid)        //If EntryCreate Required Properties are not met
                 return BadRequest(ModelState); // Return BadRequest
 
-            var service = CreateEntryService();
+            var service = new EntryService(entry.PatientId);
 
             if (!service.CreateEntry(entry))    //Checking CreateEntry() in EntryCreate class
                 return InternalServerError(); //Return 500 (Either didnt save to DB or info was put in correctly)
@@ -35,47 +37,48 @@ namespace GlucosePatrol.WebAPI.Controllers
             return Ok(); //Return 200
         }
         [HttpGet]
-        public IHttpActionResult Get(int id)
+        [Route("api/Entry/{id}")]
+        public IHttpActionResult Get(EntryDetail entries)
         {
-            EntryService entryService = CreateEntryService();
-            var entry = entryService.GetEntryById(id);
+            var service = new EntryService(entries.PatientId);
+            var entry = service.GetEntryById(entries.EntryId);
             return Ok(entry);
         }
-        private EntryService CreateEntryService() //Helper method
-        {
-            var patientId = Int32.Parse(User.Identity.GetUserId());//++++++++++++++++++++++##########
-            
-            var entryService = new EntryService(patientId);
-            return entryService;
-        }
-        [HttpGet]
-        public IHttpActionResult Get(DateTime Start, DateTime End)  // We need to create a method that gets entries beteween a start and end date.
-        {
-            EntryService entryService = CreateEntryService();
+        //[HttpGet]
+        //[Route("api/Entry/{Start:End}")]
+        //public IHttpActionResult Get(EntryStatistics model)  // We need to create a method that gets entries beteween a start and end date.
+        //{
 
-            var MinMaxAvg = entryService.GetListOfBloodSugarByDate(Start.Date, End.Date);
-            var MMA = entryService.GetMinMaxAvg(MinMaxAvg);
-            return Ok(MMA);
-        }
+        //    var entryService = new EntryService(model.PatientId);
+        //    var MinMaxAvg = entryService.GetListOfBloodSugarByDate(model.Start.Date, model.End.Date);
+        //    var MMA = entryService.GetMinMaxAvg(MinMaxAvg);
+        //    return Ok(MMA);
+        //}
         [HttpPut]
         public IHttpActionResult Put(EntryEdit entry)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            var service = CreateEntryService();
+            var service = new EntryService(entry.EntryId);
 
             if (!service.UpdateEntry(entry))
                 return InternalServerError();
             return Ok();
         }
         [HttpDelete]
-        public IHttpActionResult Delete(int id)
+        public IHttpActionResult Delete(EntryEdit entry)
         {
-            var service = CreateEntryService();
+            var service = new EntryService(entry.EntryId);
 
-            if (!service.DeleteEntry(id))
+            if (!service.DeleteEntry(entry.EntryId))
                 return InternalServerError();
             return Ok();
         }
+        //private EntryService CreateEntryService()
+        //{
+
+        //    EntryService entryService = new EntryService();
+        //    return entryService;
+        //}
     }
 }
