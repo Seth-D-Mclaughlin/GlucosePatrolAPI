@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,10 @@ namespace GlucosePatrol.Data
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
-        //public ICollection<Entry> Entries { get; set; }
+        
+        
+        public int PatientId { get; set; }
+        [ForeignKey(nameof(PatientId))]
+        public virtual Patient Patient { get; set; }
     }
 }

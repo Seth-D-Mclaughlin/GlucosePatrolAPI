@@ -54,19 +54,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntryStatistics.cs" />
-    <Compile Include="EntryCreate.cs" />
-    <Compile Include="EntryDetail.cs" />
-    <Compile Include="EntryEdit.cs" />
-    <Compile Include="EntryListItem.cs" />
-    <Compile Include="EventCreate.cs" />
-    <Compile Include="EventDetail.cs" />
-    <Compile Include="EventEdit.cs" />
-    <Compile Include="EventListItem.cs" />
-    <Compile Include="PatientCreate.cs" />
-    <Compile Include="PatientDetail.cs" />
-    <Compile Include="PatientEdit.cs" />
-    <Compile Include="PatientListItem.cs" />
+    <Compile Include="Entry\EntryStatistics.cs" />
+    <Compile Include="Entry\EntryCreate.cs" />
+    <Compile Include="Entry\EntryDetail.cs" />
+    <Compile Include="Entry\EntryEdit.cs" />
+    <Compile Include="Entry\EntryListItem.cs" />
+    <Compile Include="Event\EventCreate.cs" />
+    <Compile Include="Event\EventDetail.cs" />
+    <Compile Include="Event\EventEdit.cs" />
+    <Compile Include="Event\EventListItem.cs" />
+    <Compile Include="Patient\PatientCreate.cs" />
+    <Compile Include="Patient\PatientDetail.cs" />
+    <Compile Include="Patient\PatientEdit.cs" />
+    <Compile Include="Patient\PatientListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -79,5 +79,6 @@
       <Name>GlucosePatrol.Data</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
