@@ -19,8 +19,8 @@ namespace GlucosePatrol.Data
         public DateTimeOffset CreatedUtc { get; set; } //When the reading was created
         public DateTimeOffset? ModifiedUtc { get; set; }// When the reading was modified time
 
-        [ForeignKey(nameof(Patient))]
         public int PatientId { get; set; }
+        [ForeignKey(nameof(PatientId))]
         public virtual Patient Patient { get; set; }
     }
 }

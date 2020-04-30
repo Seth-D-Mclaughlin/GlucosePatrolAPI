@@ -10,7 +10,7 @@ namespace GlucosePatrol.Models
 {
     public class EntryDetail
     {
-        
+        [Required]
         public int EntryId { get; set; }
         public int PatientId { get; set; }
         //public Patient Patient { get; set; }

@@ -29,7 +29,7 @@ namespace GlucosePatrol.WebAPI.Controllers
             if (!ModelState.IsValid)        //If EntryCreate Required Properties are not met
                 return BadRequest(ModelState); // Return BadRequest
 
-            var service = new EntryService(entry.Patient.PatientId);
+            var service = new EntryService(entry.PatientId);
 
             if (!service.CreateEntry(entry))    //Checking CreateEntry() in EntryCreate class
                 return InternalServerError(); //Return 500 (Either didnt save to DB or info was put in correctly)
@@ -37,22 +37,23 @@ namespace GlucosePatrol.WebAPI.Controllers
             return Ok(); //Return 200
         }
         [HttpGet]
+        [Route("api/Entry/{id}")]
         public IHttpActionResult Get(EntryDetail entries)
         {
             var service = new EntryService(entries.PatientId);
             var entry = service.GetEntryById(entries.EntryId);
             return Ok(entry);
         }
-        
-        [HttpGet]
-        public IHttpActionResult Get(EntryStatistics model)  // We need to create a method that gets entries beteween a start and end date.
-        {
+        //[HttpGet]
+        //[Route("api/Entry/{Start:End}")]
+        //public IHttpActionResult Get(EntryStatistics model)  // We need to create a method that gets entries beteween a start and end date.
+        //{
 
-            var entryService = new EntryService(model.PatientId);
-            var MinMaxAvg = entryService.GetListOfBloodSugarByDate(model.Start.Date, model.End.Date);
-            var MMA = entryService.GetMinMaxAvg(MinMaxAvg);
-            return Ok(MMA);
-        }
+        //    var entryService = new EntryService(model.PatientId);
+        //    var MinMaxAvg = entryService.GetListOfBloodSugarByDate(model.Start.Date, model.End.Date);
+        //    var MMA = entryService.GetMinMaxAvg(MinMaxAvg);
+        //    return Ok(MMA);
+        //}
         [HttpPut]
         public IHttpActionResult Put(EntryEdit entry)
         {

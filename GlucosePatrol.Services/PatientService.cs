@@ -21,6 +21,7 @@ namespace GlucosePatrol.Services
             var entity =
                 new Patient()
                 {
+                    OwnerId = _userId,
                     FirstName = model.FirstName,
                     LastName = model.LastName
                 };

@@ -44,6 +44,7 @@ namespace GlucosePatrol.Services
                         e =>
                         new EntryListItem
                         {
+                            PatientId = e.PatientId,
                             EntryId = e.EntryId,
                             BloodSugarReading = e.BloodSugarReading,
                             CreatedUtc = e.CreatedUtc

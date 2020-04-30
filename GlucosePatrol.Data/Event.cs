@@ -22,6 +22,6 @@ namespace GlucosePatrol.Data
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
-        public ICollection<Entry> Entries { get; set; }
+        //public ICollection<Entry> Entries { get; set; }
     }
 }
