@@ -95,6 +95,10 @@
     <Compile Include="Migrations\202004292057224_AddedEventandPatientTable.Designer.cs">
       <DependentUpon>202004292057224_AddedEventandPatientTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004301641568_EntryForeignKeyFixed.cs" />
+    <Compile Include="Migrations\202004301641568_EntryForeignKeyFixed.Designer.cs">
+      <DependentUpon>202004301641568_EntryForeignKeyFixed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -109,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004292057224_AddedEventandPatientTable.resx">
       <DependentUpon>202004292057224_AddedEventandPatientTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004301641568_EntryForeignKeyFixed.resx">
+      <DependentUpon>202004301641568_EntryForeignKeyFixed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

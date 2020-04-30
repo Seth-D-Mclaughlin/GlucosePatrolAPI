@@ -10,18 +10,18 @@ namespace GlucosePatrol.Services
 {
     public class EntryService
     {
-        private readonly int _patientId;
+        private readonly int _userId;
         public EntryService(int patientId)
         {
-            _patientId = patientId;
+            _userId = patientId;
         }
 
         public bool CreateEntry(EntryCreate model)  //Create method
         {
             var entity =
                 new Entry()
-                {
-                    PatientId = _patientId,
+                { 
+                    PatientId = _userId,
                     BloodSugarReading = model.BloodSugarReading,
                     CreatedUtc = DateTimeOffset.Now
                 };
@@ -39,7 +39,7 @@ namespace GlucosePatrol.Services
                 var query =
                     ctx
                     .Entries
-                    .Where(e => e.PatientId == _patientId)
+                    .Where(e => e.PatientId == _userId)
                     .Select(
                         e =>
                         new EntryListItem
@@ -59,13 +59,15 @@ namespace GlucosePatrol.Services
                 var entity =
                     ctx
                     .Entries
-                    .Single(e => e.EntryId == id && e.PatientId == _patientId);
+                    .Single(e => e.EntryId == id);
                 return
                     new EntryDetail
                     {
                         EntryId = entity.EntryId,
+                        PatientId = entity.PatientId,
                         BloodSugarReading = entity.BloodSugarReading,
                         CreatedUtc = entity.CreatedUtc,
+                        FirstName = entity.Patient.FirstName,
                         ModifiedUtc = entity.ModifiedUtc
                     };
             }
@@ -77,7 +79,7 @@ namespace GlucosePatrol.Services
                 var entity =
                     ctx
                     .Entries
-                    .Single(e => e.EntryId == model.EntryId && e.PatientId == _patientId);
+                    .Single(e => e.EntryId == model.EntryId);
                 entity.BloodSugarReading = model.BloodSugarReading;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
@@ -91,7 +93,7 @@ namespace GlucosePatrol.Services
                 var entity =
                     ctx
                     .Entries
-                    .Single(e => e.EntryId == entryId && e.PatientId == _patientId);
+                    .Single(e => e.EntryId == entryId);
                 ctx.Entries.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }

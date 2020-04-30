@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GlucosePatrol.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,6 +14,6 @@ namespace GlucosePatrol.Models
         //[MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         //[MaxLength(3, ErrorMessage = "There are too many characters in this field.")]
         public int BloodSugarReading { get; set; }
-        public int PatientId { get; set; }
+        public Patient Patient { get; set; }
     }
 }
