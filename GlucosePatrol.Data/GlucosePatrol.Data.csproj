@@ -87,12 +87,29 @@
     <Compile Include="Entry.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202004302032324_InitialCreate.cs" />
+    <Compile Include="Migrations\202004302032324_InitialCreate.Designer.cs">
+      <DependentUpon>202004302032324_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004302151477_UpdatedEventTable.cs" />
+    <Compile Include="Migrations\202004302151477_UpdatedEventTable.Designer.cs">
+      <DependentUpon>202004302151477_UpdatedEventTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202004302032324_InitialCreate.resx">
+      <DependentUpon>202004302032324_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004302151477_UpdatedEventTable.resx">
+      <DependentUpon>202004302151477_UpdatedEventTable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
