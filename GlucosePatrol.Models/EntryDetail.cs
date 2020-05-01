@@ -15,6 +15,7 @@ namespace GlucosePatrol.Models
         public int PatientId { get; set; }
         //public Patient Patient { get; set; }
         public string FirstName { get; set; }
+        public string LastName { get; set; }
         public int BloodSugarReading { get; set; }
         [Display(Name="Created")]
         public DateTimeOffset CreatedUtc { get; set; }

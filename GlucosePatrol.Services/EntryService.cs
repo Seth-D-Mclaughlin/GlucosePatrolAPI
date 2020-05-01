@@ -69,6 +69,7 @@ namespace GlucosePatrol.Services
                         BloodSugarReading = entity.BloodSugarReading,
                         CreatedUtc = entity.CreatedUtc,
                         FirstName = entity.Patient.FirstName,
+                        LastName= entity.Patient.LastName,
                         ModifiedUtc = entity.ModifiedUtc
                     };
             }
