@@ -8,16 +8,13 @@ using System.Threading.Tasks;
 
 namespace GlucosePatrol.Models
 {
-    public class EventDetail
+    public class EventEdit
     {
+        [Required]
         public int EventId { get; set; }
         public EventType TypeOfEvent { get; set; }
         public EventSubType? SubTypeOfEvent { get; set; }
         public float? Value { get; set; }
         public UnitType? Unit { get; set; }
-        [Display(Name = "Created")]
-        public DateTimeOffset CreatedUtc { get; set; }
-        [Display(Name = "Modified")]
-        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

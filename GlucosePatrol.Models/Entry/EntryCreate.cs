@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GlucosePatrol.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace GlucosePatrol.Models
 {
-    public class EntryEdit
+    public class EntryCreate
     {
         [Required]
-        public int EntryId { get; set; }
+        [Range(30, 700)]
         public int BloodSugarReading { get; set; }
+        public int PatientId { get; set; }
     }
 }

@@ -12,5 +12,9 @@ namespace GlucosePatrol.Models
         public int PatientId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public float WeightInPounds { get; set; }
+        public int HeightInInches { get; set; }
+        public string Gender { get; set; }
     }
 }
