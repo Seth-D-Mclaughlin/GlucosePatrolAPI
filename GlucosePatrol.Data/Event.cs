@@ -22,10 +22,10 @@ namespace GlucosePatrol.Data
         [Key]
         public int EventId { get; set; } //EventId specifies a certain event 
         [Required]
-        public EventType TypeOfEvent { get; set; }
+        public EventType TypeOfEvent { get; set; } 
         public EventSubType? SubTypeOfEvent { get; set; }
         public float? Value { get; set; } //This is where we save the specific value of said Event. Value is nullable because certain events are not quantifiable (stress, cycle, etc.)
-        public UnitType? Unit { get; set; }
+        public UnitType? Unit { get; set; } //The type of unit is based on what value the user placed. Units are different depending on the EventType chosen
         [Required]
         public DateTimeOffset CreatedUtc { get; set; } //When the event was created
         public DateTimeOffset? ModifiedUtc { get; set; } //When/if the event was modified

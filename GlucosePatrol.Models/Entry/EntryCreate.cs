@@ -11,8 +11,7 @@ namespace GlucosePatrol.Models
     public class EntryCreate
     {
         [Required]
-        //[MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
-        //[MaxLength(3, ErrorMessage = "There are too many characters in this field.")]
+        [Range(30, 700)]
         public int BloodSugarReading { get; set; }
         public int PatientId { get; set; }
     }

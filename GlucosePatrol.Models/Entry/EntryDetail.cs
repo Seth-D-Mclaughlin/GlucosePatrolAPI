@@ -12,10 +12,10 @@ namespace GlucosePatrol.Models
     {
         [Required]
         public int EntryId { get; set; }
-        public int PatientId { get; set; }
-        //public Patient Patient { get; set; }
+        public int PatientId { get; set; } //from Patient class
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        [Range(30, 700)]
         public int BloodSugarReading { get; set; }
         [Display(Name="Created")]
         public DateTimeOffset CreatedUtc { get; set; }

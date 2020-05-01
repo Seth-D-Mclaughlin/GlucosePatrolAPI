@@ -11,6 +11,7 @@ namespace GlucosePatrol.Models
     {
         [Required]
         public int EntryId { get; set; }
+        [Range(30, 700)]
         public int BloodSugarReading { get; set; }
     }
 }
