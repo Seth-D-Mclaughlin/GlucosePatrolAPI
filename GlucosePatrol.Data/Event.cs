@@ -21,7 +21,7 @@ namespace GlucosePatrol.Data
 
     //Below we have specific units the user (patient) can choose to further describe their event 
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum UnitType { grams = 1, units, minutes }
+    public enum UnitType { grams = 1, units, minutes } //adding comment about UnitType
     public class Event
     {
         [Key]
