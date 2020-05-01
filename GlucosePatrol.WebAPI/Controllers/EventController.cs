@@ -32,6 +32,31 @@ namespace GlucosePatrol.WebAPI.Controllers
 
             return Ok();
         }
+
+        [HttpPut]
+        public IHttpActionResult Put(EventEdit model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = new EventService(model.EventId);
+
+            if (!service.UpdateEvent(model))
+                return InternalServerError();
+
+            return Ok();
+        }
+
+        [HttpDelete]
+        public IHttpActionResult Delete (EventEdit model)
+        {
+            var service = new EventService(model.EventId);
+
+            if (!service.DeleteEvent(model.EventId))
+                return InternalServerError();
+
+            return Ok();
+        }
     }
 
 }
