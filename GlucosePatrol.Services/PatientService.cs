@@ -23,7 +23,11 @@ namespace GlucosePatrol.Services
                 {
                     OwnerId = _userId,
                     FirstName = model.FirstName,
-                    LastName = model.LastName
+                    LastName = model.LastName,
+                    DateOfBirth = model.DateOfBirth,
+                    WeightInPounds = model.WeightInPounds,
+                    HeightInInches = model.HeightInInches,
+                    Gender = model.Gender
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -46,7 +50,11 @@ namespace GlucosePatrol.Services
                         {
                             PatientId = e.PatientId,
                             FirstName = e.FirstName,
-                            LastName = e.LastName
+                            LastName = e.LastName,
+                            DateOfBirth = e.DateOfBirth,
+                            WeightInPounds = e.WeightInPounds,
+                            HeightInInches = e.HeightInInches,
+                            Gender = e.Gender,
                         }
                         );
                 return query.ToArray();

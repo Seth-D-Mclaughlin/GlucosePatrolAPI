@@ -51,6 +51,8 @@ namespace GlucosePatrol.Services
                             EventId = e.EventId,
                             TypeOfEvent = e.TypeOfEvent,
                             SubTypeOfEvent = e.SubTypeOfEvent,
+                            Value = e.Value,
+                            Unit = e.Unit,
                             CreatedUtc = e.CreatedUtc
                         }
                      );
