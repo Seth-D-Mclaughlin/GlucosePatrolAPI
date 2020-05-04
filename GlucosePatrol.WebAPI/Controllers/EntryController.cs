@@ -12,12 +12,9 @@ using System.Web.Http;
 namespace GlucosePatrol.WebAPI.Controllers
 {
     [Authorize]
-    [RoutePrefix("Entry")]
-
     public class EntryController : ApiController
     {
         [HttpGet]
-        [Route("Get")]
         public IHttpActionResult Get(EntryListItem entry)
         {
             var entryService = new EntryService(entry.PatientId);
@@ -26,7 +23,7 @@ namespace GlucosePatrol.WebAPI.Controllers
         }
 
         [HttpPost]
-        [Route("Post")]
+        //[Route("Post")]
         public IHttpActionResult Post(EntryCreate entry)
         {
             if (!ModelState.IsValid)        //If EntryCreate Required Properties are not met
@@ -40,8 +37,8 @@ namespace GlucosePatrol.WebAPI.Controllers
             return Ok(); //Return 200
         }
         [HttpGet]
-        [Route("{id}")]
-        [ActionName("GetEntryByID")]
+        //[Route("{id}")]
+        //[ActionName("GetEntryByID")]
         public IHttpActionResult Get(EntryDetail entries)
         {
             var service = new EntryService(entries.PatientId);
@@ -49,8 +46,7 @@ namespace GlucosePatrol.WebAPI.Controllers
             return Ok(entry);
         }
         [HttpGet]
-        [Route("Start={Start}/End={End}")]
-        [ActionName("GetEntryByTimeSpan")]
+        //[Route("Start={Start}/End={End}")]
         public IHttpActionResult Get(EntryStatistics model)  // We need to create a method that gets entries beteween a start and end date.
         {
 
@@ -60,7 +56,7 @@ namespace GlucosePatrol.WebAPI.Controllers
             return Ok(MMA);
         }
         [HttpPut]
-        [Route("Put")]
+        //[Route("Put")]
         public IHttpActionResult Put(EntryEdit entry)
         {
             if (!ModelState.IsValid)
@@ -72,7 +68,6 @@ namespace GlucosePatrol.WebAPI.Controllers
             return Ok();
         }
         [HttpDelete]
-        [Route("Delete")]
         public IHttpActionResult Delete(EntryEdit entry)
         {
             var service = new EntryService(entry.EntryId);
