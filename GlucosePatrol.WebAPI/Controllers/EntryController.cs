@@ -41,8 +41,8 @@ namespace GlucosePatrol.WebAPI.Controllers
         }
         [HttpGet]
         [Route("{id}")]
-        [ActionName("GetEntryByID")]
-        public IHttpActionResult Get(EntryDetail entries)
+       
+        public IHttpActionResult Get(EntryDetail entries) 
         {
             var service = new EntryService(entries.PatientId);
             var entry = service.GetEntryById(entries.EntryId);
@@ -50,7 +50,7 @@ namespace GlucosePatrol.WebAPI.Controllers
         }
         [HttpGet]
         [Route("Start={Start}/End={End}")]
-        [ActionName("GetEntryByTimeSpan")]
+      
         public IHttpActionResult Get(EntryStatistics model)  // We need to create a method that gets entries beteween a start and end date.
         {
 
