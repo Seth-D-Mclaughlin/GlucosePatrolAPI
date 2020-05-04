@@ -11,11 +11,12 @@ using System.Web.Http;
 namespace GlucosePatrol.WebAPI.Controllers
 {
     [Authorize]
-    //[RoutePrefix("Patient")]
+    [RoutePrefix("Patient")]
 
     public class PatientController : ApiController
     {
         [HttpGet]
+        [Route("Get")]
         public IHttpActionResult Get()
         {
             PatientService patientService = CreatePatientService();
@@ -23,7 +24,7 @@ namespace GlucosePatrol.WebAPI.Controllers
             return Ok(patient);
         }
         [HttpPost]
-        //[Route("Post")]
+        [Route("Post")]
         public IHttpActionResult Post(PatientCreate patient)
         {
             if (!ModelState.IsValid)        //If EntryCreate Required Properties are not met
@@ -37,7 +38,7 @@ namespace GlucosePatrol.WebAPI.Controllers
             return Ok(); //Return 200
         }
         [HttpPut]
-        //[Route("Put")]
+        [Route("Put")]
         public IHttpActionResult Put(PatientEdit patient)
         {
             if (!ModelState.IsValid)
@@ -50,7 +51,7 @@ namespace GlucosePatrol.WebAPI.Controllers
         }
 
         [HttpDelete]
-        //[Route("Delete")]
+        [Route("Delete")]
         public IHttpActionResult Delete(int id)
         {
             var service = CreatePatientService();

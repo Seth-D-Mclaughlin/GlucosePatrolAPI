@@ -10,8 +10,11 @@ namespace GlucosePatrol.Models
     public class EntryListItem
     {
         [Required]
+        [Display(Name = "Patient ID")]
         public int PatientId { get; set; }
+        [Display(Name = "Entry ID")]
         public int EntryId { get; set; }
+        [Display(Name = "Blood Sugar Reading")]
         [Range(30, 700)]
         public int BloodSugarReading { get; set; }
         [Display(Name ="Created")]
