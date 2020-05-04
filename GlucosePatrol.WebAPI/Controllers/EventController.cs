@@ -21,7 +21,7 @@ namespace GlucosePatrol.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("api/Event/{id}")]
+        [Route("Event/{id}")]
         public IHttpActionResult Get(EventDetail events)
         {
             var service = new EventService(events.PatientId);
