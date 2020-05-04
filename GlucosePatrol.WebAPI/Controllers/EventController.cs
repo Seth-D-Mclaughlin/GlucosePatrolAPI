@@ -10,9 +10,11 @@ using System.Web.Http;
 namespace GlucosePatrol.WebAPI.Controllers
 {
     [Authorize]
+    [RoutePrefix("Event")]
     public class EventController : ApiController
     {
         [HttpGet]
+        [Route("Get")]
         public IHttpActionResult Get(EventListItem model)
         {
             var eventService = new EventService(model.PatientId);
@@ -21,7 +23,7 @@ namespace GlucosePatrol.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("Event/{id}")]
+        [Route("{id}")]
         public IHttpActionResult Get(EventDetail events)
         {
             var service = new EventService(events.PatientId);
@@ -30,6 +32,7 @@ namespace GlucosePatrol.WebAPI.Controllers
         }
 
         [HttpPost]
+        [Route("Post")]
         public IHttpActionResult Post(EventCreate model)
         {
             if (!ModelState.IsValid)
@@ -44,6 +47,7 @@ namespace GlucosePatrol.WebAPI.Controllers
         }
 
         [HttpPut]
+        [Route("Put")]
         public IHttpActionResult Put(EventEdit model)
         {
             if (!ModelState.IsValid)
@@ -58,6 +62,7 @@ namespace GlucosePatrol.WebAPI.Controllers
         }
 
         [HttpDelete]
+        [Route("Delete")]
         public IHttpActionResult Delete (EventEdit model)
         {
             var service = new EventService(model.EventId);
