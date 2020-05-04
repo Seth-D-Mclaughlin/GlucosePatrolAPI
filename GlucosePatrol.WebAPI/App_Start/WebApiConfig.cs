@@ -22,14 +22,10 @@ namespace GlucosePatrol.WebAPI
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{action}/{id}",
+                routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-            config.Routes.MapHttpRoute(
-                name: "DateTime",
-                routeTemplate: "api/{controller}/{action}/Start={Start}/End={End}",
-                defaults: new { controller = "{Patient}", action = "{Get}" }
-            );
+            
         }
     }
 }
