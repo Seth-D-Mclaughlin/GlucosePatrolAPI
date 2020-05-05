@@ -113,36 +113,39 @@ namespace GlucosePatrol.Services
             return ListOfBloodSugarLevels;
 
         }
-        public EntryStatistics GetMinMaxAvg(List<int> bSReadings)
+        public EntryStatistics GetMinMaxAvg(EntryStatistics model)
         {
             
-            EntryStatistics Model = new EntryStatistics();
+            
             string[,] MinMaxAvg = new string[3, 2] { { "Max", " " }, { "Min", " " }, { "Average", "" } };
-            string max = bSReadings.Max().ToString();
-            MinMaxAvg[0, 1] = max;
-            string min = bSReadings.Min().ToString();
-            MinMaxAvg[1, 1] = min;
-            string avg = bSReadings.Average().ToString();
-            MinMaxAvg[2, 1] = avg;
-            Model.MinMaxAvg = MinMaxAvg;
-            return Model;
+             
+            MinMaxAvg[0, 1] = model.BsReadings.Max().ToString();  //Sets Max Value
+            MinMaxAvg[1, 1] = model.BsReadings.Min().ToString(); //Sets Min Value
+            MinMaxAvg[2, 1] = model.BsReadings.Average().ToString(); //Sets Average Value
+            model.MinMaxAvg = MinMaxAvg;
+            model.PatientId = _userId;
+            return model;
 
-            //string count = bSReadings.Count().ToString();
+            
         }
-        public List<int> GetListOfBloodSugarByDate(DateTime Start, DateTime End)
+        public EntryStatistics GetListOfBloodSugarByDate(DateTime start, DateTime end)
         {
+            EntryStatistics model = new EntryStatistics();
             List<int> ListOfBloodSugarLevels = new List<int>();
+            model.Start = start;
+            model.End = end;
 
             IEnumerable<EntryListItem> ListOfEntries = GetEntries();
 
             foreach(EntryListItem reading in ListOfEntries)
             {
-                if(reading.CreatedUtc.Date >= Start && reading.CreatedUtc.Date <= End)
+                if(reading.CreatedUtc.Date >= start && reading.CreatedUtc.Date <= end)
                 {
                     ListOfBloodSugarLevels.Add(reading.BloodSugarReading);
                 }
             }
-            return ListOfBloodSugarLevels;
+            model.BsReadings = ListOfBloodSugarLevels;
+            return model;
         }
     }
 }
