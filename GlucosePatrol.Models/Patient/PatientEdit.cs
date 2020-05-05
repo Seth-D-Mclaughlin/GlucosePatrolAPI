@@ -10,10 +10,11 @@ namespace GlucosePatrol.Models
     public class PatientEdit
     {
         [Required]
+        public int PatientId { get; set; }
+        [Required]
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
-        public int PatientId { get; set; }
         public DateTime DateOfBirth { get; set; }
         public float WeightInPounds { get; set; }
         public int HeightInInches { get; set; }
