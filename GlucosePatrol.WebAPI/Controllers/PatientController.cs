@@ -53,11 +53,11 @@ namespace GlucosePatrol.WebAPI.Controllers
 
         [HttpDelete]
         [Route("Delete")]
-        public IHttpActionResult Delete(int id)
+        public IHttpActionResult Delete(PatientEdit patient)
         {
             var service = CreatePatientService();
 
-            if (!service.DeletePatient(id))
+            if (!service.DeletePatient(patient.PatientId))
                 return InternalServerError();
             return Ok();
         }
