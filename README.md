@@ -21,19 +21,19 @@ In this case, PatientId->2, Start->2020-04-30(Format-YYYY-MM-DD), and End->2020-
 Every route is different than others since it requires changing the Keys, Values, and route path for endpoints to work accordingly. So it is very important to have the route path as is in the Postman URL section and only change/add Keys and Values in Body. 
 
 ## Resources Implemented 
-* Introduction to ASP.NET Web API
+* Introduction to ASP.NET Web API-
   https://dotnettutorials.net/lesson/web-api-architecture/
-* Enabling CRUD Operations in ASP.NET Web API
+* Enabling CRUD Operations in ASP.NET Web API-
   https://docs.microsoft.com/en-us/aspnet/web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
-* Identity model customization in ASP.NET
+* Identity model customization in ASP.NET-
   https://docs.microsoft.com/en-us/aspnet/core/security/authentication/customize-identity-model?view=aspnetcore-3.1
-* Data Annotations - ForeignKey Attribute
+* Data Annotations - ForeignKey Attribute-
   https://www.entityframeworktutorial.net/code-first/foreignkey-dataannotations-attribute-in-code-first.aspx
-* Use of .NET Timer Class
+* Use of .NET Timer Class-
   https://stackoverflow.com/questions/4529019/how-to-use-the-net-timer-class-to-trigger-an-event-at-a-specific-time
-* Adding routes on Web.Api
+* Adding routes on Web.Api-
   https://stackoverflow.com/questions/57521517/how-can-i-add-multiple-routes-in-web-api
-* Routing with multiple Get methods
+* Routing with multiple Get methods-
   https://stackoverflow.com/questions/12775590/routing-with-multiple-get-methods-in-asp-net-web-api/12778214
-* Writing a Good Documentation
+* Writing a Good Documentation-
 	https://guides.lib.berkeley.edu/how-to-write-good-documentation
