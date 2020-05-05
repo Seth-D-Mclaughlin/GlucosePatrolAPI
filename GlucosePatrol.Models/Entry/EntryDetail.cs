@@ -10,21 +10,14 @@ namespace GlucosePatrol.Models
 {
     public class EntryDetail
     {
-        [Required]
-        [Display(Name = "Entry ID")]
-        public int EntryId { get; set; }
-        [Display(Name = "Patient ID")]
-        public int PatientId { get; set; } //from Patient class
-        [Display(Name = "First Name")]
+        public int PatientId { get; set; } 
         public string FirstName { get; set; }
-        [Display(Name = "Last Name")]
         public string LastName { get; set; }
-        [Display(Name = "Blood Sugar Reading")]
+        [Required]
+        public int EntryId { get; set; }
         [Range(30, 700)]
         public int BloodSugarReading { get; set; }
-        [Display(Name="Created")]
         public DateTimeOffset CreatedUtc { get; set; }
-        [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

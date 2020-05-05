@@ -71,6 +71,10 @@ namespace GlucosePatrol.Services
                     .Single(e => e.PatientId == model.PatientId && e.OwnerId == _userId);
                 entity.FirstName = model.FirstName;
                 entity.LastName = model.LastName;
+                entity.DateOfBirth = model.DateOfBirth;
+                entity.WeightInPounds = model.WeightInPounds;
+                entity.HeightInInches = model.HeightInInches;
+                entity.Gender = model.Gender;
                 return ctx.SaveChanges() == 1;
             }
         }
