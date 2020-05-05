@@ -1,6 +1,19 @@
 # GlucosePatrolAPI
 Eleven Fifty Academy Blue Badge Final Project 
 
+## Requirements:
+
+* Come up with an idea for an application that will use a minimum of 3 custom data tables
+* Including at least one Foreign Key relationship
+* Create a wireframe of the application and review it with an instructor
+* Build out an n-tier structured API (think ElevenNote) with the following tiers
+* Data: This layer houses your classes that relate to the DB (POCOs, Identity, etc)
+* Models: This layer houses the reusable models for the rest of the layers
+* Services: This layer is where you’ll have most of your heavy backend logic
+* Web API: This is where the controllers and API endpoints will be
+* Link to repository site on your deployed Portfolio
+* Repository has a README.md (Links to an external site.) associated with the project
+
 ## Mission Statement
 With Glucose Patrol, diabetic users are able to log and track their blood sugar levels, with an ability to return data trends over time . By also adding in their daily activities, Glucose Patrol provides useful information for diabetes management.
 
@@ -8,6 +21,10 @@ With Glucose Patrol, diabetic users are able to log and track their blood sugar 
 * Seth McLaughlin   Seth-d-mclaughlin
 * Greg Murray    gremurra 
 * Gurpreet Singh   Gurpreet10581
+
+## Important Project Links
+* Project Planing Template- https://docs.google.com/document/d/1baDJirR-G36P69SaufzsseLLMiEovCGpLgAhkhKSDLg/edit#heading=h.apyy2fblhnhk
+* WireFrame- https://docs.google.com/spreadsheets/d/1ejaVnSb47qH7iWpG4AxuUu2lwiwq92950iz3FqIfKQs/edit#gid=2002344431
 
 ## Steps to follow for proper implementation of Endpoints
 Glucose Patrol has 3 classes- Patient, Entry, and Event. All the classes communicate with each other for the application to work properly. Every class has been assigned its own designated route for proper functioning. In the API controller section, each table has been assigned unique RoutePrefix and Routes for every method to work effectively. We have multiple methods within one Controller class and routing each method uniquely helps an individual to test and pass the endpoints.
