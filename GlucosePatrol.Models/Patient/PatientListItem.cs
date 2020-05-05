@@ -9,7 +9,7 @@ namespace GlucosePatrol.Models
 {
     public class PatientListItem
     {
-        [Display(Name = "Patient ID")]
+        [Display(Name = "Patient ID", Description = "Patient's identfication number" )]
         public int PatientId { get; set; }
         [Display(Name = "First Name")]
         public string FirstName { get; set; }

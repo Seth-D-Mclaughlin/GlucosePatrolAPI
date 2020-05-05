@@ -17,6 +17,7 @@ namespace GlucosePatrol.WebAPI.Controllers
     {
         [HttpGet]
         [Route("Get")]
+
         public IHttpActionResult Get()
         {
             PatientService patientService = CreatePatientService();
